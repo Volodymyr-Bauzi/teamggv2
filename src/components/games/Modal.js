@@ -4,7 +4,7 @@ import React from 'react';
 function Modal(props) {
    return (
       <div className={classes.modal}>
-         <p>Are you sure?</p>
+         <p></p>
          <button className={classes.btn} onClick={props.onCancel}>
             Оставить заявку
          </button>

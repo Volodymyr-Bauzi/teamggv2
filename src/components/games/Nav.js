@@ -4,7 +4,7 @@ import React from 'react';
 function Nav() {
    return (
       <div className={classes.filter}>
-         <h1>Filters</h1>
+         <h1>Фильтры</h1>
       </div>
    );
 }
