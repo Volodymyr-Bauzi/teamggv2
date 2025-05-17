@@ -3,7 +3,6 @@ import React from 'react';
 import Header from '../../Header';
 import MainName from '../MainName';
 import Nav from '../Nav';
-import Modal from '../Modal';
 
 var path = window.location.pathname;
 var page = path.split('/').pop();
