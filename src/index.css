@@ -12,3 +12,19 @@ code {
    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
 }
+
+/* .container {
+   display: flex;
+} */
+
+.header_body {
+   display: flex;
+   height: 7em;
+   justify-content: center;
+   border-bottom: 3px solid rgb(49, 147, 226);
+}
+
+.header_body h1 {
+   /* position: relative; */
+   font-size: 40px;
+}

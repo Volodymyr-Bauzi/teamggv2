@@ -22,7 +22,7 @@ import PUBGMobile from './components/games/PUBGMobile/PUBGMobile';
 import DbD from './components/games/DbD/DbD';
 import GarrysMod from './components/games/GarrysMod/GarrysMod';
 import GTASAMP from './components/games/GTASAMP/GTASAMP';
-import R6 from './components/games/R6/R6';
+import Rainbow_6 from './components/games/Rainbow6/Rainbow6';
 import ARK from './components/games/ARK/ARK';
 import DayZ from './components/games/DayZ/DayZ';
 import SeaofThieves from './components/games/SeaofThieves/SeaofThieves';
@@ -99,7 +99,7 @@ function Navigation() {
          <Route path="/games/DbD" element={<DbD />} />
          <Route path="/games/GarrysMod" element={<GarrysMod />} />
          <Route path="/games/GTASAMP" element={<GTASAMP />} />
-         <Route path="/games/R6" element={<R6 />} />
+         <Route path="/games/Rainbow_6" element={<Rainbow_6 />} />
          <Route path="/games/ARK" element={<ARK />} />
          <Route path="/games/DayZ" element={<DayZ />} />
          <Route path="/games/SeaofThieves" element={<SeaofThieves />} />

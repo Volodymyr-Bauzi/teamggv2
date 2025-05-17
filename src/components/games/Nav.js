@@ -1,12 +1,15 @@
 import classes from './Nav.module.css';
 import React from 'react';
 
-function Nav() {
+function Nav(props) {
    return (
       <div className={classes.filter}>
-         <h1>Фильтры</h1>
+         <h1>Filters</h1>
+         <div>{props.children}</div>
       </div>
    );
 }
 
 export default Nav;
+
+//Фильтры

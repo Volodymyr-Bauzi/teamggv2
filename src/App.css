@@ -1,52 +1,158 @@
-body {
-   background: linear-gradient(0.25turn, #0b457c, #0e5ba3ea, #0b457c);
-   color: #ffffff;
-}
+/* Component-specific styles */
 
-.header_body {
+/* App Loading Animation */
+.app-loading {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
    display: flex;
-   height: 7em;
    justify-content: center;
-   border-bottom: 3px solid rgb(49, 147, 226);
+   align-items: center;
+   background: var(--background);
+   z-index: 9999;
 }
 
-.header_body h1 {
-   /* position: relative; */
-   font-size: 40px;
+.app-loading-spinner {
+   width: 60px;
+   height: 60px;
+   border: 4px solid rgba(255, 255, 255, 0.1);
+   border-radius: 50%;
+   border-top-color: var(--primary);
+   animation: spin 1s ease-in-out infinite;
+}
+
+/* Custom animations */
+@keyframes float {
+   0% { transform: translateY(0px); }
+   50% { transform: translateY(-10px); }
+   100% { transform: translateY(0px); }
+}
+
+/* Game card hover effect */
+.game-card {
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+   width: 8px;
+   height: 8px;
+}
+
+::-webkit-scrollbar-track {
+   background: rgba(255, 255, 255, 0.05);
+   border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+   background: var(--primary);
+   border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+   background: var(--accent);
 }
 
 .icon_logo {
-   width: 7em;
+   width: 8em;
+   filter: drop-shadow(0 4px 12px rgba(108, 99, 255, 0.5));
+   transition: all 0.3s ease;
+   animation: slideIn 0.6s ease-out;
+}
+
+.icon_logo:hover {
+   transform: translateY(-2px) scale(1.05);
+   filter: drop-shadow(0 6px 16px rgba(108, 99, 255, 0.7));
 }
 
 .input {
-   display: inline-flex;
-   width: 40%;
+   display: flex;
+   width: 100%;
+   max-width: 800px;
+   margin: 2rem auto;
    justify-content: center;
+   animation: fadeIn 0.8s ease-out;
 }
 
-.input_place {
-   margin: 10px 0px 10px 0;
+.input input {
+   width: 100%;
+   padding: 1rem 1.5rem;
+   border: 2px solid rgba(108, 99, 255, 0.3);
+   border-radius: 50px;
+   background: rgba(30, 41, 59, 0.8);
+   color: var(--text);
+   font-size: 1.1rem;
+   backdrop-filter: blur(10px);
+   transition: all 0.3s ease;
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.input input:focus {
+   outline: none;
+   border-color: var(--primary);
+   box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.2);
+}
+
+.input input::placeholder {
+   color: rgba(255, 255, 255, 0.6);
 }
 
 .button {
-   background: #22222288;
+   background: var(--gradient);
    border: none;
-   border-radius: 100px;
-   color: rgb(255, 255, 255);
-   padding: 10px 14px 10px 14px;
+   border-radius: 50px;
+   color: white;
+   padding: 0.8rem 2rem;
    text-align: center;
    text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   transition-duration: 0.4s;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 1rem;
+   font-weight: 600;
+   margin: 0.5rem;
    cursor: pointer;
    text-transform: uppercase;
+   letter-spacing: 0.5px;
+   position: relative;
+   overflow: hidden;
+   z-index: 1;
+   box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+   transition: all 0.3s ease;
 }
+
+.button::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(135deg, #4a45b1 0%, #6c63ff 100%);
+   z-index: -1;
+   opacity: 0;
+   transition: opacity 0.3s ease;
+}
+
 .button:hover {
-   color: rgb(255, 255, 255);
-   background: #7b54a0d3;
+   transform: translateY(-2px);
+   box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+}
+
+.button:active {
+   transform: translateY(0);
+   box-shadow: 0 2px 10px rgba(108, 99, 255, 0.3);
+}
+
+.button:hover::before {
+   opacity: 1;
 }
 .button:active {
    color: rgb(255, 251, 0);
@@ -63,6 +169,8 @@ body {
 }
 .tags_centred {
    display: flex;
+
+   flex-wrap: wrap;
    width: 70%;
 }
 
@@ -124,47 +232,198 @@ body {
 .cards_place {
    display: flex;
    flex-wrap: wrap;
-   width: 72%;
+   width: 80%;
    justify-content: center;
 }
 
-.App {
+.checkNicknameButton {
+   width: 100%;
+   padding: 10px;
+}
+
+/*////////////////// GAME PAGE //////////////////////////*/
+
+.game_container {
    display: flex;
-   flex-direction: column;
-   /* text-align: center; */
-}
-
-.App-logo {
-   height: 40vmin;
-   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-   .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-   }
-}
-
-.App-header {
-   background-color: #282c34;
-   min-height: 100vh;
-   display: flex;
-   flex-direction: column;
+   border: 3px solid red;
+   width: 40%;
+   margin: 0 auto;
    align-items: center;
    justify-content: center;
-   font-size: calc(10px + 2vmin);
+}
+main {
+   order: 2;
+   flex-grow: 3;
+}
+.game_main {
+   display: flex;
+   justify-content: center;
+}
+.sidebar {
+   order: 1;
+   flex-grow: 1;
+}
+/* .game_body {
+   align-items: center;
+} */
+
+/*////////////////// Modal window //////////////////////////*/
+/* .modal {
+   border: 3px solid red;
+   min-width: 30%;
+   margin: 0 auto;
+   position: absolute;
+   display: flex;
+   height: 75%;
+   min-height: 100%;
+   z-index: 2;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+} */
+
+.modal_head {
+   display: flex;
+   border: 3px solid red;
+   flex-direction: column;
+   /* margin: 0 auto; */
+   /* width: 30%; */
+   box-shadow: 0 1px 4px rgb(109, 14, 172);
+   border-radius: 10px;
+   background-color: rgb(255, 255, 255);
+   color: rgb(15, 15, 15);
+   padding: 1rem;
+   text-align: center;
+   /* width: 30%; */
+   position: absolute;
+   /* margin: 0 auto; */
+   height: 70%;
+   min-height: 70%;
+   width: 30%;
+   z-index: 20;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   /* position: fixed; */
+   /* border: 3px solid red; */
+   /* margin-left: 400px; */
+   /* top: 5%; */
+   /* margin: 0 auto; */
+
+   transition: opacity 0.15s linear;
+}
+
+.modal_body {
+   display: block;
+   flex: 1 1 auto;
+   /* border: 3px solid red; */
+}
+
+.btn {
+   /* position: absolute; */
+   /* bottom: 1rem; */
+   /* width: 89%; */
+   font: inherit;
+   padding: 0.5rem 1.5rem;
+   cursor: pointer;
+   border-radius: 4px;
+   background-color: #800040;
    color: white;
+   border: 1px solid #800040;
+   margin: 0 1rem;
 }
 
-.App-link {
-   color: #61dafb;
+.btn:hover {
+   background-color: #9c1458;
+   border-color: #9c1458;
 }
 
-@keyframes App-logo-spin {
-   from {
-      transform: rotate(0deg);
+ul {
+   padding: 0;
+   list-style-type: none;
+}
+
+img {
+   max-width: 100%;
+   height: auto;
+   vertical-align: middle;
+   border-style: none;
+   transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.accountInfo {
+   display: flex;
+   justify-content: space-evenly;
+
+   flex-wrap: wrap;
+   margin: 20px 20px;
+}
+.accountInfo {
+   /** create the "split" background **/
+   background-image: linear-gradient(
+      to bottom,
+      var(--color2) 50%,
+      var(--color1) 50%
+   );
+}
+
+/** add extra space to the bottom (need this for the "sticky" effect) **/
+.accountInfo::after {
+   content: '';
+   display: block;
+   min-height: var(--minh);
+}
+/* @media (max-width: 1670px) {
+   .accountInfo
+} */
+
+/* .accountImgDiv {
+} */
+.accountImgDiv img {
+   /* width: 100px; */
+   height: 100px;
+}
+.accountNickDiv {
+   padding-right: 50px;
+}
+.accountRankDiv p,
+.accountRankDiv img {
+   margin: 0;
+}
+.accountRankDiv img {
+   margin: 0;
+}
+.accountRankDiv img {
+   width: 80px;
+   border-radius: 50%;
+   background: rgb(87, 106, 160);
+}
+.accountKDDiv {
+   padding: 15px 20px 0 0;
+}
+@media (max-width: 1370px) {
+   .accountInfo {
+      justify-content: space-between;
    }
-   to {
-      transform: rotate(360deg);
+   .accountRankDiv {
+      margin-left: 3%;
+   }
+   .accountKDDiv {
+      margin-right: 16%;
+   }
+}
+@media (max-width: 1103px) {
+   .accountInfo {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0;
+   }
+   .accountNickDiv {
+      padding: 0;
+   }
+   .accountKDDiv {
+      padding: 0;
+      margin: 0;
    }
 }

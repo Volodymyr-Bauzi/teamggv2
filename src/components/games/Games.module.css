@@ -1,18 +1,3 @@
-.header {
-   /* width: 100%; */
-   padding: 20px 200px 20px 670px;
-   height: 6rem;
-   display: flex;
-   /* justify-content: center; */
-   background-color: rgba(0, 0, 10, 0.596);
-}
-.headerCentred {
-   display: flex;
-   /* justify-content: center; */
-   align-items: center;
-   /* width: 80%; */
-   /* padding: 20px 200px 20px 400px; */
-}
 .img {
    position: relative;
    width: 7em;
@@ -23,38 +8,11 @@
    /* position: fixed; */
    /* left: 30%; */
 }
-.text {
-   /* position: fixed; */
-   /* right: 42%; */
-   /* color: white; */
+
+.modal_window {
+   /* display: flex; */
 }
 
-.main_place {
-   display: flex;
-   justify-content: center;
-   padding-top: 1em;
-}
-/* justify-content: center; */
-.main_section {
-   display: flex;
-   width: 30%;
-   flex-direction: column;
-   justify-content: center;
-   /* margin: 100px 100px; */
-}
-
-.main_body_name {
-   display: flex;
-   justify-content: center;
-   /* width: 200px; */
-   /* border: 3px solid red; */
-}
-.main_body_button {
-   display: flex;
-   /* width: 200px; */
-   /* border: 3px solid red; */
-   justify-content: flex-end;
-}
 .leaveModel {
    background: #dfdfdf88;
    border: none;
@@ -75,18 +33,7 @@
    color: rgb(255, 255, 255);
    background: #24242473;
 }
-.main_nav_content {
-   display: flex;
-   justify-content: center;
-   /* flex-direction: column; */
-   /* justify-content: flex-start; */
-}
-.main_nav {
-   flex-grow: 1;
-   border: 3px solid red;
-}
-.navigation {
-}
+
 /* .main_nav {
    border-top-width: 1px;
    border-top-color: #e4e7eb;

@@ -1,20 +1,16 @@
 // import jsonfile from './games.json';
-import {Outlet, Link} from 'react-router-dom';
-import classes from './Games.module.css';
+import {Outlet} from 'react-router-dom';
 import React from 'react';
-import Nav from './Nav';
-import MainName from './MainName';
-import Header from '../Header';
 import Modal from './Modal';
 import Backdrop from './Backdrop';
 import {useState} from 'react';
-import MainBody from './MainBody';
-// import {getGames} from '../../breastplate/Buttons/games';
+// import classes from './Games.module.css';
 
 function Games(props) {
    // const findGame = getGames();
    //  console.log(jsonfile);
    const [showModal, setShowModal] = useState(false);
+
    function openModal() {
       setShowModal(true);
    }
@@ -22,34 +18,50 @@ function Games(props) {
       setShowModal(false);
    }
 
-   var path = window.location.pathname;
-   var page = path.split('/').pop();
-   console.log(page);
+   console.log(showModal);
 
    return (
-      <>
-         <Header />
-         <div className={classes.main_place}>
-            <main className={classes.main_section}>
-               <Nav />
-               <div className={classes.main_body_name}>
-                  <MainName name={page} />
-               </div>
-               <div className={classes.main_body_button}>
-                  <button className={classes.leaveModel} onClick={openModal}>
-                     ОСТАВИТЬ ЗАЯВКУ
-                  </button>
-               </div>
-               <MainBody />
+      <div>
+         <div>
+            <div>
+               <button className="leaveModel_button" onClick={openModal}>
+                  Leave Application
+               </button>
+               <Outlet />
+            </div>
 
-               <div></div>
-            </main>
-            <Outlet />
-            {showModal && <Modal />}
+            <div>
+               {showModal && (
+                  <Modal
+                     onNicknameInputChange={props.onNicknameInputChange}
+                     onInputKeyPress={props.onInputKeyPress}
+                     checkingIfLoading={props.checkingIfLoading}
+                     accountCheckButton={props.accountCheckButton}
+                     accountImg={props.accountImg}
+                     accountNickname={props.accountNickname}
+                     accountLvl={props.accountLvl}
+                     accountRank={props.accountRank}
+                     accountRankMmr={props.accountRankMmr}
+                     accountKD={props.accountKD}
+                     accountPlatform={props.accountPlatform}
+                     choosePlatform={props.choosePlatform}
+                     chooseLanguage={props.chooseLanguage}
+                     chooseGameMode={props.chooseGameMode}
+                     chooseRank={props.chooseRank}
+                     chooseIfMic={props.chooseIfMic}
+                     chooseRegion={props.chooseRegion}
+                     onCancel={closeModal}
+                  />
+               )}
+            </div>
+
             {showModal && <Backdrop onCancel={closeModal} />}
+            {/* </div> */}
          </div>
-      </>
+      </div>
    );
 }
 
 export default Games;
+
+/* ОСТАВИТЬ ЗАЯВКУ */

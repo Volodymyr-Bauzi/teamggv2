@@ -1,84 +1,120 @@
+import { updateGamesWithIcons } from '../utils/gameIcons';
+
+// Function to get games with icons
+const getGamesWithIcons = async () => {
+  try {
+    const gamesWithIcons = await updateGamesWithIcons(games);
+    return gamesWithIcons;
+  } catch (error) {
+    console.error('Error fetching game icons:', error);
+    return games; // Return original games if there's an error
+  }
+};
+
+// For backward compatibility
+const getGames = () => games;
+
+export { getGames, getGamesWithIcons };
+
 let games = [
    {
-      image: 'https://icon-library.com/images/league-of-legend-icon/league-of-legend-icon-8.jpg',
+      image: 'https://static.wikia.nocookie.net/leagueoflegends/images/8/86/League_of_legends_logo.png',
       name: 'League of Legends',
       tag: 'Соревновательные Популярные',
       uri: 'LeagueofLegends',
    },
    {
-      image: 'https://cdnb.artstation.com/p/assets/images/images/003/638/701/large/yusif-alomeri-dota-emoticons-icon-circle.jpg?1475880618',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Dota_2_Steam_icon.png/1024px-Dota_2_Steam_icon.png',
       name: 'Dota 2',
       tag: 'Соревновательные Популярные',
       uri: 'Dota2',
    },
    {
-      image: 'https://42m8ekmoad.a.trbcdn.net/wp-content/uploads/2021/07/Rezhim-horror-i-karty-dlya-nego-v-ks-go.jpg',
-      name: 'Counter-Strike: Global Offensive',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Counter-Strike_2_Logo.svg/2048px-Counter-Strike_2_Logo.svg.png',
+      name: 'Counter-Strike 2',
       tag: 'Соревновательные Популярные',
-      uri: 'CSGO',
+      uri: 'CS2',
    },
    {
-      image: '',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Minecraft.svg/2048px-Minecraft.svg.png',
       name: 'Minecraft',
       tag: 'Кооперативные Популярные',
       uri: 'Minecraft',
    },
    {
-      image: '',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Rust_prototype_logo_2016.svg/2048px-Rust_prototype_logo_2016.svg.png',
       name: 'Rust',
       tag: 'Кооперативные Популярные',
       uri: 'Rust',
    },
    {
-      image: '',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Epic_Games_icon.svg/2048px-Epic_Games_icon.svg.png',
       name: 'Fortnite',
       tag: 'Соревновательные Популярные',
       uri: 'Fortnite',
    },
    {
-      image: '',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Brawl_Stars_logo.png/1024px-Brawl_Stars_logo.png',
       name: 'Brawl Stars',
       tag: 'Соревновательные Популярные',
       uri: 'BrawlStars',
    },
    {
-      image: '',
+      image: 'https://play-lh.googleusercontent.com/8gxSJRGVfH-9XeZd8UYvBxSDGRVunBzUJbM1eA0S7v6yU4J9g4Hx0y8s8x6Xq3pJQ',
       name: 'Standoff 2',
-      tag: 'Соревновательные Популярные',
+      tag: 'Соревновательные',
       uri: 'Standoff2',
    },
    {
-      image: '',
-      name: 'Genshin Impact',
-      tag: 'Популярные',
-      uri: 'GenshinImpact',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/PUBG_Logo.svg/1200px-PUBG_Logo.svg.png',
+      name: 'PUBG',
+      tag: 'Соревновательные Популярные',
+      uri: 'PUBG',
    },
    {
-      image: '',
-      name: 'Roblox',
-      tag: 'Популярные',
-      uri: 'Roblox',
-   },
-   {
-      image: '',
-      name: 'Grand Theft Auto V',
-      tag: 'Популярные',
-      uri: 'GTAV',
-   },
-   {
-      image: '',
-      name: 'Terraria',
-      tag: 'Онлайн Популярные',
-      uri: 'Terraria',
-   },
-   {
-      image: 'Logo Apex Legends',
+      image: 'https://upload.wikimedia.org/wikipedia/ru/thumb/d/db/Apex_legends_cover.jpg/1200px-Apex_legends_cover.jpg',
       name: 'Apex Legends',
       tag: 'Соревновательные Популярные',
       uri: 'ApexLegends',
    },
    {
-      image: 'Logo Valorant',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Valorant_logo_-_pink_color_version.svg/1200px-Valorant_logo_-_pink_color_version.svg.png',
+      name: 'Valorant',
+      tag: 'Соревновательные Популярные',
+      uri: 'Valorant',
+   },
+   {
+      image: 'Logo PUBG Mobile',
+      name: 'PUBG Mobile',
+      tag: 'Онлайн Популярные',
+      uri: 'PUBGMobile',
+   },
+   {
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Genshin_Impact_logo.svg/2048px-Genshin_Impact_logo.svg.png',
+      name: 'Genshin Impact',
+      tag: 'Популярные',
+      uri: 'GenshinImpact',
+   },
+   {
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Grand_Theft_Auto_V.png/1200px-Grand_Theft_Auto_V.png',
+      name: 'Grand Theft Auto V',
+      tag: 'Популярные',
+      uri: 'GTAV',
+   },
+   {
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Terraria_Logo.svg/1200px-Terraria_Logo.svg.png',
+      name: 'Terraria',
+      tag: 'Онлайн Популярные',
+      uri: 'Terraria',
+   },
+   {
+      image: "Logo Apex Legends",
+      name: 'Apex Legends',
+      tag: 'Соревновательные Популярные',
+      uri: 'ApexLegends',
+   },
+   {
+      image: "Logo Valorant",
       name: 'Valorant',
       tag: 'Онлайн Популярные',
       uri: 'Valorant',
@@ -90,7 +126,7 @@ let games = [
       uri: 'PUBGMobile',
    },
    {
-      image: 'Logo Dead by Daylight',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Dead_by_Daylight_Steam_icon.jpg/1200px-Dead_by_Daylight_Steam_icon.jpg',
       name: 'Dead by Daylight',
       tag: 'Онлайн Популярные',
       uri: 'DbD',
@@ -110,8 +146,8 @@ let games = [
    {
       image: "Logo Tom Clancy's Rainbow Six: Siege",
       name: "Tom Clancy's Rainbow Six: Siege",
-      tag: 'Онлайн',
-      uri: 'R6',
+      tag: 'Онлайн Соревновательные Популярные',
+      uri: 'Rainbow_6',
    },
    {
       image: 'Logo ARK: Survival Evolved',
@@ -150,7 +186,7 @@ let games = [
       uri: 'Phasmophobia',
    },
    {
-      image: 'Logo World of Tanks',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/World_of_Tanks_Logo.png/1200px-World_of_Tanks_Logo.png',
       name: 'World of Tanks',
       tag: 'Онлайн',
       uri: 'WoT',
@@ -162,7 +198,7 @@ let games = [
       uri: 'DontStarve',
    },
    {
-      image: 'Logo Rocket League',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Rocket_League_coverart.jpg/1200px-Rocket_League_coverart.jpg',
       name: 'Rocket League',
       tag: 'Онлайн',
       uri: 'RocketLeague',
@@ -204,13 +240,13 @@ let games = [
       uri: 'MobileLegends',
    },
    {
-      image: 'Logo The Forest',
+      image: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8a/The_Forest_cover_art.jpg/220px-The_Forest_cover_art.jpg',
       name: 'The Forest',
       tag: 'Онлайн',
       uri: 'TheForest',
    },
    {
-      image: 'Logo Overwatch',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Overwatch_circle_logo.svg/1200px-Overwatch_circle_logo.svg.png',
       name: 'Overwatch',
       tag: 'Онлайн',
       uri: 'Overwatch',
@@ -228,7 +264,7 @@ let games = [
       uri: 'WoTBlitz',
    },
    {
-      image: 'Logo Among Us',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Among_Us_steam_icon.jpg/1200px-Among_Us_steam_icon.jpg',
       name: 'Among Us',
       tag: 'Онлайн',
       uri: 'AmongUs',
@@ -264,7 +300,7 @@ let games = [
       uri: 'ScrapMechanic',
    },
    {
-      image: 'Logo Warframe',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Warframe_icon.png/1200px-Warframe_icon.png',
       name: 'Warframe',
       tag: 'Онлайн',
       uri: 'Warframe',
@@ -276,7 +312,7 @@ let games = [
       uri: 'EuroTruckSimulator2',
    },
    {
-      image: 'Logo Paladins',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Paladins_logo.png/1200px-Paladins_logo.png',
       name: 'Paladins',
       tag: 'Онлайн',
       uri: 'Paladins',
@@ -438,7 +474,3 @@ let games = [
       uri: 'Borderlands2',
    },
 ];
-
-export function getGames() {
-   return games;
-}

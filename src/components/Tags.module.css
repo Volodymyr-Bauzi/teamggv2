@@ -1,0 +1,154 @@
+.tagsContainer {
+  width: 100%;
+  padding: 1rem 0;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.tagsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  padding: 0 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.tag:hover {
+  background: rgba(51, 65, 85, 0.8);
+  transform: translateY(-1px);
+}
+
+.tag:active {
+  transform: translateY(0);
+}
+
+.tag.active {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-color: transparent;
+}
+
+.tagIcon {
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.tagName {
+  position: relative;
+  z-index: 1;
+  transition: all 0.2s ease;
+}
+
+.activeIndicator {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* Dark theme adjustments */
+@media (prefers-color-scheme: dark) {
+  .tag {
+    background: rgba(30, 41, 59, 0.8);
+    color: #f8fafc;
+  }
+  
+  .tag:hover {
+    background: rgba(51, 65, 85, 0.9);
+  }
+  
+  .tag.active {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tagsWrapper {
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 0.5rem;
+    margin-bottom: -0.5rem;
+  }
+  
+  .tagsWrapper::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .tag {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  
+  .tagIcon {
+    font-size: 1em;
+  }
+}
+
+/* Animation styles */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tag {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Custom scrollbar for webkit browsers */
+@media (min-width: 769px) {
+  .tagsWrapper::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  .tagsWrapper::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+  }
+  
+  .tagsWrapper::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+  
+  .tagsWrapper::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
